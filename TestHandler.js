@@ -27,16 +27,55 @@ Crawler = new Crawler.Crawler();
 // handler.baidu('hello world', function(){});
 // handler.baidu('hello world2', function(){});
 
-Crawler.push({
+var mongo = require('mongodb');
+var data = {tasks : [{
 	urls : ['http://www.baidu.com', 'http://www.google.com.hk'],
 	handler : 'baidu'
-});
+}, {
+	urls : ['http://www.tmall.com', 'http://www.jd.com'],
+	handler : 'baidu'
+}]
+};
+var client = mongo.Db('tasks', new mongo.Server('127.0.0.1', '27017'), {fsync:true});
+			client.open(function() {
+				client.collection('tasks', function(err, collection){
+					collection.insert(data, function(err) {
+						// ### How to Save, Every and Queue ###
+						console.log('insert, finish');
+						client.close();
+					});
+				});
+			});
 
-Crawler.pull(function(err, data) {
-	if(err) {
-		console.log(err);
-	}
-	else {
-		console.dir(data);
-	}
-});
+// Crawler.push({
+// 	urls : ['http://www.baidu.com', 'http://www.google.com.hk'],
+// 	handler : 'baidu'
+// });
+
+// Crawler.push({
+// 	urls : ['http://www.baidu.com', 'http://www.google.com.hk'],
+// 	handler : 'baidu'
+// });
+
+// Crawler.push({
+// 	urls : ['http://www.baidu.com', 'http://www.google.com.hk'],
+// 	handler : 'baidu'
+// });
+
+// Crawler.pull(function(err, data) {
+// 	if(err) {
+// 		console.log(err);
+// 	}
+// 	else {
+// 		console.dir(data);
+// 	}
+// });
+
+// Crawler.pull(function(err, data) {
+// 	if(err) {
+// 		console.log(err);
+// 	}
+// 	else {
+// 		console.dir(data);
+// 	}
+// });
