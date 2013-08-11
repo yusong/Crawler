@@ -6,8 +6,8 @@
 		var _self = this;
 
 		_self.config = {
-			host : conf.host || '127.0.0.1',
-			port : conf.port || '8000'
+			host : conf.host || GLOBAL_CONF.server.host,
+			port : conf.port || GLOBAL_CONF.server.port
 		}
 
 		_self.functions = {};
@@ -21,15 +21,15 @@
 			var sendResponse = function(err_or_data, statusCode) {
 				response.statusCode = statusCode || 200;
 				if( response.statusCode != 200 ) {
-					console.log('statusCode: ' + statusCode);console.log(err_or_data);
+					// console.log('statusCode: ' + statusCode);console.log(err_or_data);
 					response.write(''+err_or_data, 'utf8');
 					response.end();
 				} else if( err_or_data ) {
-					console.log('statusCode: ' + statusCode);console.log(err_or_data);
+					// console.log('statusCode: ' + statusCode);console.log(err_or_data);
 					response.write(JSON.stringify(err_or_data), 'utf8');
 					response.end();
 				} else {
-					console.log('statusCode: null');console.log(err_or_data);
+					// console.log('statusCode: null');console.log(err_or_data);
 					response.end();
 				}
 			};

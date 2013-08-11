@@ -1,0 +1,71 @@
+
+数据接口列表如下：
+
+	1. pushJob2Redis，从Mongo拉取到的任务格式；
+	2. push，把任务塞入任务队列的任务格式；
+	3. pull，客户端拉取到的任务格式；
+	4. ack，从客户端传送过来的任务包的格式；
+	5. saveTaskToMongo，handler中保存新的任务到Mongo的格式；
+
+
+
+
+	1. pushJob2Redis，从Mongo拉取到的任务格式
+
+		注意，它是从 DB:tasks 中拉取，内容为一项项任务
+
+		{
+			_id : 'Id of Data',
+			tasks : [
+				{
+					handler : 'name of handler',
+					urls : [url]
+				}
+			]
+		}
+
+
+	2. push，把任务塞入任务队列的任务格式
+
+		{
+	 		urls : [url],
+	 		handler : 'name of handler'
+	 	}
+
+
+	3. pull，客户端拉取到的任务格式，与2相同
+
+		{
+	 		urls : [url],
+	 		handler : 'name of handler'
+	 	}	
+
+
+	4. ack，从客户端传送过来的任务包的格式
+
+		注意，这里是一个数组，因为客户端可能会同时在抓取不同handler处理的任务
+
+		[
+			{
+				handler : 'name of handler (tmall | jingdong)',
+				results : [
+					{
+						'specific param of task' : 'value',
+		 				'specific param of task' : 'value'
+			 		}
+				]
+			}
+		]
+
+	5. saveTaskToMongo，handler中保存新的任务到Mongo的格式
+
+		同1一致，怎么存就怎么取
+
+		{
+			tasks : [
+				{
+					handler : 'name of handler',
+					urls : [url]
+				}
+			]
+		}	

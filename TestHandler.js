@@ -30,20 +30,22 @@ Crawler = new Crawler.Crawler();
 var mongo = require('mongodb');
 var data = {tasks : [{
 	urls : ['http://www.baidu.com', 'http://www.google.com.hk'],
-	handler : 'baidu'
+	handler : 'jingdong'
 }, {
 	urls : ['http://www.tmall.com', 'http://www.jd.com'],
-	handler : 'baidu'
+	handler : 'jingdong'
 }]
 };
 var client = mongo.Db('tasks', new mongo.Server('127.0.0.1', '27017'), {fsync:true});
 			client.open(function() {
 				client.collection('tasks', function(err, collection){
-					collection.insert(data, function(err) {
-						// ### How to Save, Every and Queue ###
-						console.log('insert, finish');
-						client.close();
-					});
+					for( var i = 0 ; i < 1; i++ ){
+										collection.insert(data, function(err) {
+											// ### How to Save, Every and Queue ###
+											console.log('insert, finish');
+											client.close();
+										});
+					}
 				});
 			});
 
