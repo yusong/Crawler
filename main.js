@@ -14,8 +14,12 @@
 		Crawler = new Crawler.Crawler();
 		Crawler.flush();
 
+		var publicFunc = require('./publicFunc').PublicFunc;
+		
+
 		server.expose('/pull', Crawler.pull.bind(Crawler));
 		server.expose('/ack', Crawler.ack.bind(Crawler));
+		server.expose('/getHandler', publicFunc.getHandler);
 	}
 
 	createServer();	
