@@ -17,6 +17,7 @@
 		var publicFunc = require('./publicFunc').PublicFunc;
 		
 
+		server.expose('/push', Crawler.push.bind(Crawler));
 		server.expose('/pull', Crawler.pull.bind(Crawler));
 		server.expose('/ack', Crawler.ack.bind(Crawler));
 		server.expose('/getHandler', publicFunc.getHandler);
