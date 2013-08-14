@@ -12,11 +12,25 @@ var mongo = require('mongodb');
 // }]
 // };
 
+// var data = {tasks : [{
+// 	urls : ['http://www.tmall.com/'],
+// 	handler : 'tmall'
+// }]
+// };
+
 var data = {tasks : [{
-	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-1-1.html'],
-	handler : 'jingdong'
+	urls : ['http://weibo.com/zuozuomuxifans'],
+	handler : 'weibo'
 }]
 };
+
+
+
+// var data = {tasks : [{
+// 	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-1-1.html'],
+// 	handler : 'jingdong'
+// }]
+// };
 
 // var data = {tasks : [{
 // 	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-49-1.html'],
