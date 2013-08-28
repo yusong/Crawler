@@ -51,7 +51,9 @@
 				results : [
 					{
 						'specific param of task' : 'value',
-		 				'specific param of task' : 'value'
+		 				urls: [],
+		 				product: {},
+		 				pages: []
 			 		}
 				]
 			}

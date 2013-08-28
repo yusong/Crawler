@@ -18,19 +18,19 @@ var mongo = require('mongodb');
 // }]
 // };
 
-var data = {tasks : [{
-	urls : ['http://weibo.com/zuozuomuxifans'],
-	handler : 'weibo'
-}]
-};
-
-
-
 // var data = {tasks : [{
-// 	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-1-1.html'],
+// 	urls : ['http://item.jd.com/911913.html'],
 // 	handler : 'jingdong'
 // }]
 // };
+
+
+
+var data = {tasks : [{
+	urls : ['http://list.jd.com/652-654-831.html'],
+	handler : 'jingdong'
+}]
+};
 
 // var data = {tasks : [{
 // 	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-49-1.html'],
@@ -59,5 +59,4 @@ var client = mongo.Db('tasks', new mongo.Server('127.0.0.1', '27017'), {fsync:tr
 					}
 				});
 			});
-
 
