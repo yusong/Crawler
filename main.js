@@ -4,13 +4,13 @@
 
 	function createServer() {
 
-		var server = require('./Server');
+		var server = require('./server');
 		server = new server.Server({
 			host : GLOBAL_CONF.server.host,
 			port : GLOBAL_CONF.server.port
 		});
 
-		var Crawler = require('Crawler');
+		var Crawler = require('crawler');
 		Crawler = new Crawler.Crawler();
 		Crawler.flush();
 
@@ -21,6 +21,7 @@
 		server.expose('/pull', Crawler.pull.bind(Crawler));
 		server.expose('/ack', Crawler.ack.bind(Crawler));
 		server.expose('/getHandler', publicFunc.getHandler);
+		server.expose('/updateCategory', publicFunc.updateCategory);
 	}
 
 	createServer();	

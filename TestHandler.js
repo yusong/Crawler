@@ -1,5 +1,5 @@
 
-var Crawler = require('Crawler');
+var Crawler = require('crawler');
 // var crawler = Crawler.Crawler();
 Crawler = new Crawler.Crawler();
 
@@ -18,19 +18,27 @@ var mongo = require('mongodb');
 // }]
 // };
 
-// var data = {tasks : [{
-// 	urls : ['http://item.jd.com/911913.html'],
-// 	handler : 'jingdong'
-// }]
-// };
-
-
-
 var data = {tasks : [{
-	urls : ['http://list.jd.com/652-654-831.html'],
+	urls : ['http://list.jd.com/652-829-848.html'],
 	handler : 'jingdong'
 }]
 };
+
+// var data = {tasks : [{
+// 	urls : ['http://list.jd.com/652-654-831.html'],
+// 	// urls : ['http://item.jd.com/706334.html'],
+// 	handler : 'jingdong'
+// }, {
+// 	urls : ['http://list.tmall.com'],
+// 	handler : 'tmall'
+// }, {
+// 	urls : ['http://list.tmall.com'],
+// 	handler : 'tmall'
+// }, {
+// 	urls : ['http://list.tmall.com'],
+// 	handler : 'tmall'
+// }]
+// };
 
 // var data = {tasks : [{
 // 	urls : ['http://list.jd.com/6196-6197-6199-0-0-0-0-0-0-0-1-1-49-1.html'],

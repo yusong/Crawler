@@ -53,11 +53,13 @@
 						'specific param of task' : 'value',
 		 				urls: [],
 		 				product: {},
-		 				pages: []
+		 				pages: [],
+		 				category: []
 			 		}
 				]
 			}
 		]
+
 
 	5. saveTaskToMongo，handler中保存新的任务到Mongo的格式
 
