@@ -18,6 +18,31 @@
 		},
 
 		/**
+		 * Submit Tasks into MongoDB
+		 */
+		submitTask : function(tasks, callback) {
+
+			var client = Mongo.Db('tasks', new Mongo.Server(GLOBAL_CONF.mongo.host, GLOBAL_CONF.mongo.port), {fsync:true});
+
+			client.open(function(err) {
+				if(err) console.log('open:'+err);
+				else {
+					client.collection('tasks', function(err, coll) {
+						if(err) console.log('collection:'+err);
+						else {
+							coll.insert( tasks, function(err) {
+								if(err) console.log(err);
+								client.close();
+							});					
+						}	
+					});
+				}
+			});
+
+			callback(null, 'update category finish');
+		},
+
+		/**
 		 * Update Category in MongoDB
 		 */
 		updateCategory : function(arg, callback) {

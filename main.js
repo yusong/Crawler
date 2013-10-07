@@ -22,6 +22,9 @@
 		server.expose('/ack', Crawler.ack.bind(Crawler));
 		server.expose('/getHandler', publicFunc.getHandler);
 		server.expose('/updateCategory', publicFunc.updateCategory);
+		server.expose('/submitTask', publicFunc.submitTask);
+
+		console.log('server start');
 	}
 
 	createServer();	

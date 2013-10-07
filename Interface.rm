@@ -19,6 +19,7 @@
 			tasks : [
 				{
 					handler : 'name of handler',
+					category : [],
 					urls : [url]
 				}
 			]
@@ -29,6 +30,7 @@
 
 		{
 	 		urls : [url],
+	 		category : [],
 	 		handler : 'name of handler'
 	 	}
 
@@ -37,6 +39,7 @@
 
 		{
 	 		urls : [url],
+	 		category : [],
 	 		handler : 'name of handler'
 	 	}	
 
